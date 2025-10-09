@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import LiquidGlass from "@/components/LiquidGlass";
 import MidnightMist from "@/components/MidnightMist";
-import RippleImageCSS from "@/components/RippleImageCSS";
+import GyroTiltImage from "@/components/GyroTiltImage";
 
 export default function Home() {
   const projects = [
@@ -107,17 +107,14 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right: Professional Photo with Enhanced Ripple Effect */}
+            {/* Right: Professional Photo with Gyroscope Tilt & Liquid Morph */}
             <div className="flex justify-center">
-              <LiquidGlass className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" blur={15} elasticity={0.1}>
-                <RippleImageCSS
-                  src="/images/profile.png"
-                  alt="Professional Photo"
-                  className="w-full"
-                  aspectRatio="3/4"
-                  maxWidth="w-full"
-                />
-              </LiquidGlass>
+              <GyroTiltImage
+                src="/images/profile.png"
+                alt="Professional Photo"
+                className="w-full"
+                maxWidth="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
+              />
             </div>
           </motion.div>
         </section>
