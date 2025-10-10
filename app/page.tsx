@@ -5,6 +5,7 @@ import Image from "next/image";
 import LiquidGlass from "@/components/LiquidGlass";
 import MidnightMist from "@/components/MidnightMist";
 import GyroTiltImage from "@/components/GyroTiltImage";
+import LiquidMorphLogo from "@/components/LiquidMorphLogo";
 
 export default function Home() {
   const projects = [
@@ -50,20 +51,13 @@ export default function Home() {
           >
             {/* Left: Text Content */}
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                <Image
-                  src="/logos/dark_mode_brand.png"
-                  alt="elev8tion"
-                  width={300}
-                  height={90}
-                  className="mb-6"
-                  priority
-                />
-              </motion.div>
+              <LiquidMorphLogo
+                src="/logos/dark_mode_brand.svg"
+                alt="elev8tion"
+                width={300}
+                height={90}
+                className="mb-6"
+              />
 
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white"
