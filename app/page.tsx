@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import LiquidGlass from "@/components/LiquidGlass";
 import MidnightMist from "@/components/MidnightMist";
 import GyroTiltImage from "@/components/GyroTiltImage";
 import LiquidMorphLogo from "@/components/LiquidMorphLogo";
 
 export default function Home() {
+  const router = useRouter();
   const projects = [
     {
       title: "AI SMB Partners",
@@ -30,7 +32,7 @@ export default function Home() {
       description: "Visual no-code platform for extracting reusable code blocks from production codebases with MCP integration. Supports React/TypeScript, FastAPI/Python, and Flutter/Dart projects with intelligent AST parsing and block composition.",
       tags: ["TypeScript", "Python", "Dart", "MCP", "Code Extraction", "Visual Composer"],
       features: ["Multi-language extractors (React/Node, FastAPI, Flutter)", "Visual canvas for block composition", "MCP integration for AI-assisted workflows", "JSON manifest system with schema validation", "Real-time project extraction from UI"],
-      link: "https://github.com/elev8tion/blocky",
+      link: "/projects/blocky",
       image: "/images/blocky-ui.png",
     },
   ];
@@ -180,7 +182,13 @@ export default function Home() {
 
                       {project.link && (
                         <div className="mt-auto pt-4">
-                          <LiquidGlass onClick={() => window.open(project.link, '_blank')}>
+                          <LiquidGlass onClick={() => {
+                            if (project.link.startsWith('/')) {
+                              router.push(project.link);
+                            } else {
+                              window.open(project.link, '_blank');
+                            }
+                          }}>
                             <div className="px-6 py-2 text-center">
                               <span className="font-semibold text-sm text-white">View Live Project →</span>
                             </div>
