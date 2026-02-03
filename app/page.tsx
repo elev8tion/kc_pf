@@ -147,15 +147,16 @@ export default function Home() {
                   <LiquidGlass className="h-full">
                     <div className="p-8 flex flex-col h-full">
                       {project.image && (
-                        <div className="mb-6 flex justify-center">
-                          <div className="relative w-48 h-auto">
+                        <div className="mb-6 -mx-8 -mt-8 overflow-hidden">
+                          <div className="relative w-full aspect-video group">
                             <Image
                               src={project.image}
                               alt={`${project.title} app screenshot`}
-                              width={300}
-                              height={600}
-                              className="rounded-2xl shadow-2xl"
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/50 pointer-events-none" />
                           </div>
                         </div>
                       )}
