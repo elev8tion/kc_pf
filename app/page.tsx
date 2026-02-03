@@ -15,6 +15,7 @@ export default function Home() {
       tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "UI/UX"],
       features: ["Interactive ROI calculator", "Industry filters", "WCAG 2.1 AA compliant"],
       link: "https://ai-smb-partners.netlify.app", // Update this after deployment
+      image: "/images/ai-smb-partners.png",
     },
     {
       title: "Everyday Christian",
@@ -25,16 +26,11 @@ export default function Home() {
       image: "/images/everyday-christian/app-mockup.png",
     },
     {
-      title: "Local AI Insertions",
-      description: "12 production-ready AI implementations for Flutter - from text classification to face detection",
-      tags: ["Flutter", "ML Kit", "TensorFlow Lite", "Computer Vision"],
-      features: ["12 implementations", "Copy-paste ready", "Full guides"],
-    },
-    {
-      title: "Flutter APK Reverse Engineering MCP",
-      description: "Enterprise-grade Flutter APK security analysis platform with 13 MCP tools for code reconstruction, security auditing, and dynamic analysis. Reconstructs projects from binaries with auto-generated Frida scripts.",
-      tags: ["Python", "MCP", "Security Analysis", "Reverse Engineering", "Frida"],
-      features: ["APK security scanning (20+ secret patterns)", "Full Flutter project reconstruction", "11 auto-generated Frida bypass scripts", "Widget tree & symbol recovery", "IDA Pro/Ghidra/Binary Ninja integration"],
+      title: "Blocky - Multi-Language Code Composer",
+      description: "Visual no-code platform for extracting reusable code blocks from production codebases with MCP integration. Supports React/TypeScript, FastAPI/Python, and Flutter/Dart projects with intelligent AST parsing and block composition.",
+      tags: ["TypeScript", "Python", "Dart", "MCP", "Code Extraction", "Visual Composer"],
+      features: ["Multi-language extractors (React/Node, FastAPI, Flutter)", "Visual canvas for block composition", "MCP integration for AI-assisted workflows", "JSON manifest system with schema validation", "Real-time project extraction from UI"],
+      link: "https://github.com/elev8tion/blocky",
       image: "/images/blocky-ui.png",
     },
   ];
