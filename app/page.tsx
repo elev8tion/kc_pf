@@ -10,10 +10,19 @@ import LiquidMorphLogo from "@/components/LiquidMorphLogo";
 export default function Home() {
   const projects = [
     {
-      title: "Everyday Christian AI",
-      description: "AI-powered faith companion with on-device LSTM text generation and TFLite sentiment analysis",
-      tags: ["Flutter", "TFLite", "AI/ML", "iOS/Android"],
-      features: ["On-device AI", "Offline-first", "Real-time generation"],
+      title: "AI SMB Partners",
+      description: "Comprehensive landing page for AI automation platform targeting SMBs with ROI calculator and industry-specific use cases",
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "UI/UX"],
+      features: ["Interactive ROI calculator", "Industry filters", "WCAG 2.1 AA compliant"],
+      link: "https://ai-smb-partners.netlify.app", // Update this after deployment
+    },
+    {
+      title: "Everyday Christian",
+      description: "Privacy-first Christian PWA with AI pastoral guidance, 31,103 Bible verses, prayer journal, devotionals, and crisis intervention. Built with Flutter and Cloudflare Workers backend.",
+      tags: ["Flutter", "Cloudflare Workers", "Gemini API", "Stripe", "PWA"],
+      features: ["31,103 Bible verses (offline)", "AI pastoral chat (150 msgs/month)", "Prayer journal & devotionals", "Cloudflare Workers backend", "Crisis detection safeguards"],
+      link: "https://everydaychristian.app",
+      image: "/images/everyday-christian/app-mockup.png",
     },
     {
       title: "Local AI Insertions",
@@ -22,10 +31,11 @@ export default function Home() {
       features: ["12 implementations", "Copy-paste ready", "Full guides"],
     },
     {
-      title: "Blocky MCP Server",
-      description: "Code extraction and analysis server for React, Flutter, and FastAPI projects",
-      tags: ["TypeScript", "MCP", "Code Analysis", "AI Tools"],
-      features: ["Multi-framework", "Real-time analysis", "Block system"],
+      title: "Flutter APK Reverse Engineering MCP",
+      description: "Enterprise-grade Flutter APK security analysis platform with 13 MCP tools for code reconstruction, security auditing, and dynamic analysis. Reconstructs projects from binaries with auto-generated Frida scripts.",
+      tags: ["Python", "MCP", "Security Analysis", "Reverse Engineering", "Frida"],
+      features: ["APK security scanning (20+ secret patterns)", "Full Flutter project reconstruction", "11 auto-generated Frida bypass scripts", "Widget tree & symbol recovery", "IDA Pro/Ghidra/Binary Ninja integration"],
+      image: "/images/blocky-ui.png",
     },
   ];
 
@@ -138,6 +148,20 @@ export default function Home() {
                 >
                   <LiquidGlass className="h-full">
                     <div className="p-8 flex flex-col h-full">
+                      {project.image && (
+                        <div className="mb-6 flex justify-center">
+                          <div className="relative w-48 h-auto">
+                            <Image
+                              src={project.image}
+                              alt={`${project.title} app screenshot`}
+                              width={300}
+                              height={600}
+                              className="rounded-2xl shadow-2xl"
+                            />
+                          </div>
+                        </div>
+                      )}
+
                       <h3 className="text-2xl font-semibold text-white mb-3">{project.title}</h3>
                       <p className="text-white/70 mb-4 flex-grow">{project.description}</p>
 
@@ -149,7 +173,7 @@ export default function Home() {
                         ))}
                       </div>
 
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 mb-4">
                         {project.features.map((feature) => (
                           <li key={feature} className="flex items-center gap-2 text-sm text-white/60">
                             <span className="text-indigo-400">✓</span>
@@ -157,6 +181,16 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
+
+                      {project.link && (
+                        <div className="mt-auto pt-4">
+                          <LiquidGlass onClick={() => window.open(project.link, '_blank')}>
+                            <div className="px-6 py-2 text-center">
+                              <span className="font-semibold text-sm text-white">View Live Project →</span>
+                            </div>
+                          </LiquidGlass>
+                        </div>
+                      )}
                     </div>
                   </LiquidGlass>
                 </motion.div>
