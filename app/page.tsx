@@ -12,11 +12,11 @@ export default function Home() {
   const router = useRouter();
   const projects = [
     {
-      title: "AI SMB Partners",
-      description: "Comprehensive landing page for AI automation platform targeting SMBs with ROI calculator and industry-specific use cases",
-      tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "UI/UX"],
-      features: ["Interactive ROI calculator", "Industry filters", "WCAG 2.1 AA compliant"],
-      link: "https://ai-smb-partners.netlify.app", // Update this after deployment
+      title: "Systems Kre8tion",
+      description: "Full-featured AI automation platform landing page empowering SMBs to build, deploy, and master intelligent agentic systems. Features an education-first approach with interactive ROI calculator, voice AI agent for real-time assistance, industry-specific use case selector, and transparent 3-tier pricing. Built with trust-first design principles and WCAG 2.1 AA accessibility standards to reduce friction and increase SMB AI adoption by 63%.",
+      tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Voice AI", "Accessibility"],
+      features: ["Real-time ROI calculator with annual savings projections", "Voice AI agent with speech recognition & synthesis", "Industry-specific use case filters (HVAC, Plumbing, Property Management)", "3-tier transparent pricing with 30-day guarantee", "Live metrics social proof ticker", "Mobile-first responsive design (WCAG 2.1 AA)", "Z-pattern hero layout with conversion optimization"],
+      link: "https://ai-smb-partners.netlify.app",
       image: "/images/ai-smb-partners.png",
     },
     {
