@@ -314,45 +314,37 @@ export default function Home() {
                       <p className="text-white/60 mb-6">Book a time that works for you</p>
                     </div>
 
-                    <AnimatePresence mode="wait">
-                      {!isBookingOpen ? (
-                        <motion.button
-                          key="button"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          onClick={() => setIsBookingOpen(true)}
-                          className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2"
+{!isBookingOpen ? (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log("Button clicked!");
+                          setIsBookingOpen(true);
+                        }}
+                        className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Open Booking Calendar
+                      </button>
+                    ) : (
+                      <div className="space-y-4">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsBookingOpen(false);
+                          }}
+                          className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto"
                         >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
-                          Open Booking Calendar
-                        </motion.button>
-                      ) : (
-                        <motion.div
-                          key="widget"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="mb-4">
-                            <button
-                              onClick={() => setIsBookingOpen(false)}
-                              className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto"
-                            >
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                              </svg>
-                              Close
-                            </button>
-                          </div>
-                          <div className="mymeet-embed" data-username="kcei"></div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          Close
+                        </button>
+                        <div className="mymeet-embed" data-username="kcei"></div>
+                      </div>
+                    )}
                   </div>
                 </LiquidGlass>
               </motion.div>
