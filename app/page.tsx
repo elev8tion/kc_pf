@@ -303,63 +303,59 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
                 {!isBookingOpen ? (
-                  <LiquidGlass>
-                    <div className="p-8">
-                      <div className="mb-6 text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
-                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
-                        <p className="text-white/60 mb-6">Book a time that works for you</p>
-                      </div>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          console.log("Button clicked!");
-                          setIsBookingOpen(true);
-                        }}
-                        className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative rounded-[24px] p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+                    <div className="mb-6 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        Open Booking Calendar
-                      </button>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                      <p className="text-white/60 mb-6">Book a time that works for you</p>
                     </div>
-                  </LiquidGlass>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        console.log("Button clicked! State before:", isBookingOpen);
+                        setIsBookingOpen(true);
+                        console.log("State after setIsBookingOpen(true) called");
+                      }}
+                      className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      Open Booking Calendar
+                    </button>
+                  </div>
                 ) : (
-                  <LiquidGlass>
-                    <div className="p-8">
-                      <div className="mb-6 text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
-                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                  <div className="relative rounded-[24px] p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+                    <div className="mb-6 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
                       </div>
-                      <div className="space-y-4">
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            console.log("Close button clicked!");
-                            setIsBookingOpen(false);
-                          }}
-                          className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                          Close Calendar
-                        </button>
-                        <div className="mymeet-embed" data-username="kcei"></div>
-                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
                     </div>
-                  </LiquidGlass>
+                    <div className="space-y-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          console.log("Close button clicked! State before:", isBookingOpen);
+                          setIsBookingOpen(false);
+                          console.log("State after setIsBookingOpen(false) called");
+                        }}
+                        className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto cursor-pointer"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Close Calendar
+                      </button>
+                      <div className="mymeet-embed" data-username="kcei"></div>
+                    </div>
+                  </div>
                 )}
               </motion.div>
             </div>
