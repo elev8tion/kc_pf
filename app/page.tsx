@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Script from "next/script";
 import LiquidGlass from "@/components/LiquidGlass";
 import MidnightMist from "@/components/MidnightMist";
 import GyroTiltImage from "@/components/GyroTiltImage";
@@ -12,7 +10,6 @@ import LiquidMorphLogo from "@/components/LiquidMorphLogo";
 
 export default function Home() {
   const router = useRouter();
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const projects = [
     {
       title: "AI SMB Partners",
@@ -51,7 +48,6 @@ export default function Home() {
 
   return (
     <>
-      <Script src="https://app.mymeet.io/js/embed-website.js" strategy="lazyOnload" />
       <main className="relative min-h-screen w-full">
         <MidnightMist />
 
@@ -295,15 +291,20 @@ export default function Home() {
                 </LiquidGlass>
               </motion.div>
 
-              {/* MyMeet Booking Widget */}
+              {/* Schedule a Meeting */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                {!isBookingOpen ? (
-                  <div className="relative rounded-[24px] p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+                <LiquidGlass>
+                  <a
+                    href="https://livekre8.app/kcei"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-8"
+                  >
                     <div className="mb-6 text-center">
                       <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
                         <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,50 +314,14 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
                       <p className="text-white/60 mb-6">Book a time that works for you</p>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        console.log("Button clicked! State before:", isBookingOpen);
-                        setIsBookingOpen(true);
-                        console.log("State after setIsBookingOpen(true) called");
-                      }}
-                      className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2 cursor-pointer"
-                    >
+                    <div className="w-full px-8 py-4 rounded-[16px] bg-purple-500/20 border border-purple-400/30 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400/50 transition-all duration-300 font-semibold flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      Open Booking Calendar
-                    </button>
-                  </div>
-                ) : (
-                  <div className="relative rounded-[24px] p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
-                    <div className="mb-6 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                      Book Appointment
                     </div>
-                    <div className="space-y-4">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          console.log("Close button clicked! State before:", isBookingOpen);
-                          setIsBookingOpen(false);
-                          console.log("State after setIsBookingOpen(false) called");
-                        }}
-                        className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto cursor-pointer"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        Close Calendar
-                      </button>
-                      <div className="mymeet-embed" data-username="kcei"></div>
-                    </div>
-                  </div>
-                )}
+                  </a>
+                </LiquidGlass>
               </motion.div>
             </div>
           </div>
