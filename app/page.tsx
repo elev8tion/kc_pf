@@ -302,21 +302,21 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                <LiquidGlass>
-                  <div className="p-8">
-                    <div className="mb-6 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                {!isBookingOpen ? (
+                  <LiquidGlass>
+                    <div className="p-8">
+                      <div className="mb-6 text-center">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                        <p className="text-white/60 mb-6">Book a time that works for you</p>
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
-                      <p className="text-white/60 mb-6">Book a time that works for you</p>
-                    </div>
-
-{!isBookingOpen ? (
                       <button
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
                           console.log("Button clicked!");
                           setIsBookingOpen(true);
@@ -328,11 +328,25 @@ export default function Home() {
                         </svg>
                         Open Booking Calendar
                       </button>
-                    ) : (
+                    </div>
+                  </LiquidGlass>
+                ) : (
+                  <LiquidGlass>
+                    <div className="p-8">
+                      <div className="mb-6 text-center">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                      </div>
                       <div className="space-y-4">
                         <button
                           onClick={(e) => {
+                            e.preventDefault();
                             e.stopPropagation();
+                            console.log("Close button clicked!");
                             setIsBookingOpen(false);
                           }}
                           className="text-purple-400 hover:text-purple-300 text-sm flex items-center gap-1 mx-auto"
@@ -340,13 +354,13 @@ export default function Home() {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
-                          Close
+                          Close Calendar
                         </button>
                         <div className="mymeet-embed" data-username="kcei"></div>
                       </div>
-                    )}
-                  </div>
-                </LiquidGlass>
+                    </div>
+                  </LiquidGlass>
+                )}
               </motion.div>
             </div>
           </div>
