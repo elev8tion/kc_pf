@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import LiquidGlass from "@/components/LiquidGlass";
 import MidnightMist from "@/components/MidnightMist";
 import GyroTiltImage from "@/components/GyroTiltImage";
@@ -38,15 +39,19 @@ export default function Home() {
   ];
 
   const skills = {
-    "Mobile Development": ["Flutter", "React Native", "iOS (Swift)", "Android (Kotlin)"],
-    "Web Development": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    "AI/ML": ["TensorFlow Lite", "ML Kit", "On-device AI", "LLM Integration"],
-    "Backend & Cloud": ["Node.js", "FastAPI", "Firebase", "AWS/GCP"],
+    "Frontend & Web": ["React", "Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion", "PWA"],
+    "Mobile Development": ["Flutter", "Dart", "iOS", "Android", "Offline-First Apps"],
+    "Backend & APIs": ["Node.js", "FastAPI", "Python", "Cloudflare Workers", "REST APIs"],
+    "AI & LLM": ["Gemini API", "Claude API", "MCP Protocol", "LLM Integration", "AI Workflows"],
+    "DevOps & Cloud": ["Firebase", "Netlify", "Vercel", "AWS", "GCP", "Cloudflare"],
+    "Tools & Systems": ["Git", "AST Parsing", "Code Extraction", "Stripe Integration", "Schema Validation"],
   };
 
   return (
-    <main className="relative min-h-screen w-full">
-      <MidnightMist />
+    <>
+      <Script src="https://app.mymeet.io/js/embed-website.js" strategy="lazyOnload" />
+      <main className="relative min-h-screen w-full">
+        <MidnightMist />
 
       <div className="relative z-10">
         {/* Hero Section */}
@@ -259,70 +264,62 @@ export default function Home() {
               <p className="text-lg sm:text-xl text-white/60 px-4 sm:px-0">Ready to elevate your project with cutting-edge technology?</p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <LiquidGlass>
-                <div className="p-6 sm:p-8 md:p-12 space-y-4 sm:space-y-6">
-                  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                    <div>
-                      <label className="block text-white/80 mb-2">Name</label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3 rounded-[16px] bg-white/5 border border-white/10 text-white focus:border-indigo-400/50 focus:outline-none transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-white/80 mb-2">Email</label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-3 rounded-[16px] bg-white/5 border border-white/10 text-white focus:border-indigo-400/50 focus:outline-none transition-colors"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-white/80 mb-2">Project Details</label>
-                    <textarea
-                      rows={6}
-                      className="w-full px-4 py-3 rounded-[16px] bg-white/5 border border-white/10 text-white focus:border-indigo-400/50 focus:outline-none transition-colors resize-none"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
-
-                  <div className="flex justify-center pt-4">
-                    <LiquidGlass onClick={() => console.log("Send message")}>
-                      <div className="px-12 py-4">
-                        <span className="font-semibold text-lg text-white">Send Message</span>
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {/* Email Contact */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
+                <LiquidGlass>
+                  <div className="p-8 text-center">
+                    <div className="mb-6">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
                       </div>
-                    </LiquidGlass>
+                      <h3 className="text-2xl font-bold text-white mb-2">Email Me</h3>
+                      <p className="text-white/60 mb-6">Let's discuss your project</p>
+                    </div>
+                    <a
+                      href="mailto:connect@elev8tion.one"
+                      className="inline-block px-8 py-4 rounded-[16px] bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 hover:bg-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300 font-semibold"
+                    >
+                      connect@elev8tion.one
+                    </a>
                   </div>
-                </div>
-              </LiquidGlass>
-            </motion.div>
+                </LiquidGlass>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-center mt-12 space-y-4"
-            >
-              <p className="text-white/60">Or reach out directly:</p>
-              <div className="flex justify-center gap-6">
-                <a href="mailto:your@email.com" className="text-indigo-400 hover:text-indigo-300 transition-colors">Email</a>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors">GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 transition-colors">LinkedIn</a>
-              </div>
-            </motion.div>
+              {/* MyMeet Booking Widget */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
+                <LiquidGlass>
+                  <div className="p-8">
+                    <div className="mb-6 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">Schedule a Meeting</h3>
+                      <p className="text-white/60 mb-6">Book a time that works for you</p>
+                    </div>
+                    <div className="mymeet-embed" data-username="kcei"></div>
+                  </div>
+                </LiquidGlass>
+              </motion.div>
+            </div>
           </div>
         </section>
       </div>
     </main>
+    </>
   );
 }
