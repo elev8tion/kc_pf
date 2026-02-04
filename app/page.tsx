@@ -32,7 +32,7 @@ export default function Home() {
       description: "Visual no-code platform for extracting reusable code blocks from production codebases with MCP integration. Supports React/TypeScript, FastAPI/Python, and Flutter/Dart projects with intelligent AST parsing and block composition.",
       tags: ["TypeScript", "Python", "Dart", "MCP", "Code Extraction", "Visual Composer"],
       features: ["Multi-language extractors (React/Node, FastAPI, Flutter)", "Visual canvas for block composition", "MCP integration for AI-assisted workflows", "JSON manifest system with schema validation", "Real-time project extraction from UI"],
-      link: "/projects/blocky",
+      link: "https://blockydem.netlify.app",
       image: "/images/blocky-ui.png",
     },
   ];
